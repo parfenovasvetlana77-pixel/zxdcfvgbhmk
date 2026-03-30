@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Детские травмы как фактор формирования личности в подростковом возрасте</title>
+    <!-- Подключаем библиотеку для генерации QR-кода -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #3a4a2e 0%, #2c3a24 100%);
+            color: #f5f0e6;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка с фоновой картинкой */
+        header {
+            background: linear-gradient(rgba(25, 35, 20, 0.75), rgba(18, 28, 14, 0.85)), url('https://cdna.artstation.com/p/users/covers/001/810/594/default/9bc90c2f2dd79ed9dad1cf01724a52e4.jpg?1649308673');
+            background-size: cover;
+            background-position: center 40%;
+            color: #fff5e8;
+            padding: 55px 0 50px;
+            text-align: center;
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.25);
+            position: relative;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+            max-width: 800px;
+            color: #fffae8;
+        }
+
+        header .subtitle {
+            font-size: 1.2rem;
+            opacity: 1;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+            font-style: italic;
+            color: #ffe6c7;
+        }
+
+        /* Авторство в конце шапки — цвет как у заголовка */
+        .author-info {
+            margin-top: 28px;
+            font-style: italic;
+            font-size: 0.95rem;
+            color: #fffae8;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.6);
+            text-align: center;
+            background: rgba(0,0,0,0.25);
+            backdrop-filter: blur(4px);
+            padding: 10px 24px;
+            border-radius: 50px;
+            display: inline-block;
+        }
+
+        .author-info p {
+            margin: 2px 0;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            color: #fffae8;
+        }
+
+        /* Навигация */
+        nav {
+            background: #2c3a24;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #5a7344;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 14px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #f0e2cf;
+            transition: 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #ffdd99;
+            border-bottom-color: #c7a86b;
+        }
+
+        /* Секции */
+        section {
+            background: #fef9ef;
+            border-radius: 32px;
+            padding: 36px 32px;
+            margin: 48px 0;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            transition: transform 0.2s;
+            border: 1px solid #e8d9c4;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            color: #2d5523;
+            margin-bottom: 20px;
+            border-left: 5px solid #b8863e;
+            padding-left: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 24px 0 12px 0;
+            color: #8b5a2b;
+        }
+
+        p {
+            color: #2a3a1f;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px;
+            flex: 1 1 280px;
+            transition: 0.2s;
+            border: 1px solid #d4c4ae;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 16px 28px rgba(0,0,0,0.12);
+        }
+
+        .card h4 {
+            font-size: 1.4rem;
+            margin: 8px 0 12px 0;
+            color: #a5692c;
+        }
+
+        .card p {
+            color: #3a4a2a;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 8px;
+        }
+
+        .badge {
+            background: #e8d9c4;
+            color: #6b4c2a;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            display: inline-block;
+            margin-bottom: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .test-area {
+            background: #f5efe6;
+            border-radius: 28px;
+            padding: 28px;
+            margin-top: 24px;
+            border: 1px solid #ddceb5;
+        }
+
+        .question {
+            background: #ffffff;
+            padding: 20px 24px;
+            margin-bottom: 20px;
+            border-radius: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            border: 1px solid #e8d9c4;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 14px;
+            color: #3a552a;
+            font-size: 1rem;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: #f0e8dc;
+            padding: 8px 18px;
+            border-radius: 40px;
+            transition: 0.1s;
+            color: #4a5e32;
+            font-weight: 500;
+        }
+
+        button {
+            background: #b8863e;
+            color: #ffffff;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+
+        button:hover {
+            background: #9b6a32;
+            transform: scale(1.02);
+            color: #fff;
+        }
+
+        .result-box {
+            background: #f0e8dc;
+            padding: 24px;
+            border-radius: 28px;
+            margin-top: 24px;
+            border-left: 6px solid #b8863e;
+        }
+
+        .result-box p, .result-box h3 {
+            color: #2d3e1f;
+        }
+
+        .advice-list {
+            background: #faf3e8;
+            border-radius: 24px;
+            padding: 24px 32px;
+            margin: 20px 0;
+            border: 1px solid #e0cfb8;
+        }
+
+        .advice-list li {
+            margin-bottom: 12px;
+            color: #3a552a;
+        }
+
+        .advice-card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 22px;
+            margin-bottom: 20px;
+            border-left: 5px solid #b8863e;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .advice-card h4 {
+            color: #b5732c;
+            margin-bottom: 12px;
+            font-size: 1.2rem;
+        }
+
+        .advice-card p {
+            color: #3a4a2a;
+        }
+
+        /* Стили для секции QR-кода */
+        .qr-section {
+            text-align: center;
+            background: #faf3e8;
+        }
+
+        .qr-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #qrcode {
+            background: white;
+            padding: 20px;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            display: inline-block;
+            margin-bottom: 15px;
+        }
+
+        .qr-button {
+            background: #b8863e;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .qr-note {
+            font-size: 0.85rem;
+            color: #6b5a48;
+            margin-top: 12px;
+        }
+
+        footer {
+            background: #2c3a24;
+            color: #ddceb5;
+            text-align: center;
+            padding: 32px 0;
+            border-radius: 40px 40px 0 0;
+            margin-top: 48px;
+        }
+
+        footer p {
+            color: #ddceb5;
+        }
+
+        .theory-link {
+            background: #f0e8dc;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .theory-link p {
+            color: #3a552a;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.6rem; }
+            section { padding: 24px 18px; }
+            h2 { font-size: 1.5rem; }
+            .author-info { padding: 6px 16px; }
+            .author-info p { font-size: 0.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <h1>Детские травмы как фактор формирования личности в подростковом возрасте</h1>
+        <div class="subtitle">«Невидимые шрамы»: как пережитое в детстве определяет эмоции, поведение и отношения в юности</div>
+        <div class="author-info">
+            <p>Сайт разработан: Половинкина Е.А.</p>
+            <p>Руководитель: Парфенова С.А.</p>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="#about">О проекте</a>
+            <a href="#impact">Как травма влияет</a>
+            <a href="#test">Самооценка</a>
+            <a href="#help">Рекомендации</a>
+            <a href="#qr">QR-код</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <section id="about">
+        <h2>📖 О проекте</h2>
+        <p><strong>Детство — фундаментальный этап в формировании личности, закладывающий основы мировосприятия, поведения и эмоционального здоровья человека.</strong> Однако, когда этот период омрачается травмирующими событиями — физическим, эмоциональным насилием, потерей близких или хронической нестабильностью, — последствия редко остаются в прошлом. Особенно остро они проявляются в подростковом возрасте, когда психика перестраивается, формируется идентичность и обостряется чувствительность к социальному окружению.</p>
+        <p>Цель проекта — комплексный анализ влияния детских психологических травм на формирование личности в подростковом возрасте: эмоциональную сферу, социальную адаптацию, самооценку и поведенческие паттерны.</p>
+        <p><strong>Задачи:</strong> определить понятие детской травмы, изучить механизмы воздействия на психику, проанализировать проявления в подростковом возрасте и рассмотреть подходы к психологической поддержке.</p>
+        <p>📌 <em>Практическая значимость:</em> создание интерактивного инструмента (тест-опросник) для первичного самоанализа и информационная поддержка подростков.</p>
+        
+        <div class="theory-link">
+            <p>🔗 <strong>Связь с теоретической частью проекта:</strong> Данный сайт создан на основе результатов проведённого исследования. Здесь собраны ключевые выводы о механизмах воздействия детских травм, факторах, влияющих на глубину травматизации, а также данные анкетирования учащихся. Тест-опросник разработан с учётом выявленных форм эмоционального насилия и их последствий.</p>
+        </div>
+    </section>
+
+    <section id="impact">
+        <h2>🧠 Как детские травмы отражаются в подростковом возрасте</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <div class="badge">Эмоциональная сфера</div>
+                <h4>Нестабильность & тревога</h4>
+                <p>Подростки с травматическим прошлым чаще испытывают внезапные перепады настроения, генерализованную тревожность, вспышки гнева или апатию. Миндалевидное тело (центр страха) работает в режиме повышенной готовности.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🪞</div>
+                <div class="badge">Самооценка</div>
+                <h4>Чувство неполноценности</h4>
+                <p>Внутренний критик, сформированный в детстве, заставляет подростка обесценивать свои успехи, искать одобрения и бояться отвержения. Формируется токсичный стыд и уверенность в собственной никчёмности.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">💔</div>
+                <div class="badge">Отношения</div>
+                <h4>Сложности доверия</h4>
+                <p>Трудно выстраивать близкие отношения, страх быть покинутым (тревожный тип привязанности), либо наоборот — излишняя отстранённость и боязнь близости (избегающий тип).</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚠️</div>
+                <div class="badge">Поведение</div>
+                <h4>Риск & самоповреждение</h4>
+                <p>Импульсивность, уход в аддикции (игры, соцсети, вещества), рискованные поступки или селфхарм как попытка справиться с эмоциональной болью и обрести контроль.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="test">
+        <h2>🧩 Интерактивный тест: «Эмоциональный компас подростка»</h2>
+        <p>Этот анонимный опросник поможет тебе заметить возможные проявления последствий трудного детского опыта. Тест основан на данных проведённого анкетирования и отражает ключевые формы эмоционального насилия и их влияние на самооценку, тревожность и отношения.</p>
+        <div class="test-area">
+            <form id="traumaTestForm">
+                <div class="question">
+                    <p>1. В детстве я часто чувствовал(а), что мои эмоции не важны для родителей или опекунов.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="3"> Почти всегда</label>
+                        <label><input type="radio" name="q1" value="2"> Иногда</label>
+                        <label><input type="radio" name="q1" value="1"> Редко</label>
+                        <label><input type="radio" name="q1" value="0"> Никогда</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>2. Сейчас (в подростковом возрасте) мне сложно доверять сверстникам и открываться новым людям.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="3"> Согласен(а), очень сложно</label>
+                        <label><input type="radio" name="q2" value="2"> Иногда трудно</label>
+                        <label><input type="radio" name="q2" value="1"> Скорее легко</label>
+                        <label><input type="radio" name="q2" value="0"> Доверие не проблема</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>3. Я часто чувствую сильную тревогу или панику без явной причины.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="3"> Очень часто</label>
+                        <label><input type="radio" name="q3" value="2"> Время от времени</label>
+                        <label><input type="radio" name="q3" value="1"> Редко</label>
+                        <label><input type="radio" name="q3" value="0"> Почти никогда</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>4. Мне кажется, я заслуживаю только плохого отношения или неудач (низкая самооценка).</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="3"> Постоянно так думаю</label>
+                        <label><input type="radio" name="q4" value="2"> Иногда</label>
+                        <label><input type="radio" name="q4" value="1"> Редко</label>
+                        <label><input type="radio" name="q4" value="0"> Нет, я себя ценю</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>5. У меня бывают вспышки гнева или агрессии, которые я не могу контролировать.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="3"> Да, часто</label>
+                        <label><input type="radio" name="q5" value="2"> Иногда срываюсь</label>
+                        <label><input type="radio" name="q5" value="1"> Редко</label>
+                        <label><input type="radio" name="q5" value="0"> Нет, спокоен(а)</label>
+                    </div>
+                </div>
+                <div class="question">
+                    <p>6. В детстве я пережил(а) стрессовые события, которые до сих пор всплывают в памяти.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="3"> Да, и это сильно влияет</label>
+                        <label><input type="radio" name="q6" value="2"> Частично влияет</label>
+                        <label><input type="radio" name="q6" value="1"> Незначительно</label>
+                        <label><input type="radio" name="q6" value="0"> Нет, такого не было</label>
+                    </div>
+                </div>
+                <button type="button" id="calcResultBtn">🔍 Получить результат</button>
+            </form>
+            <div id="testResult" class="result-box" style="display: none;"></div>
+        </div>
+    </section>
+
+    <section id="help">
+        <h2>🛡️ Как поддержать себя и близких?</h2>
+        <p>На основе теоретических данных и результатов анкетирования были сформулированы развёрнутые рекомендации для подростков, столкнувшихся с последствиями детских травм.</p>
+        
+        <div class="advice-card">
+            <h4>🧩 1. Признать травму и перестать обесценивать свой опыт</h4>
+            <p>Первый шаг к исцелению — признать, что то, что случилось, было травмой. Фразы «у всех так было», «меня не били, значит всё нормально» мешают двигаться дальше. Признание: «да, это было, мне было больно, и мои сегодняшние трудности связаны с этим» — открывает путь к исцелению.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 2. Обратиться к специалисту</h4>
+            <p>Самостоятельно справиться с глубокими травмами сложно. Психолог или психотерапевт помогает безопасно разобрать старые раны. Существуют разные подходы: травма-ориентированная терапия, когнитивно-поведенческая, телесно-ориентированная. Важно найти специалиста, с которым будет комфортно.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 3. Перестать винить себя</h4>
+            <p>Дети, пережившие эмоциональное насилие, часто вырастают с чувством вины. Важно понять: ребёнок никогда не виноват в том, как с ним обращались взрослые. Вина, которую человек носит внутри, на самом деле не его. Это ложное убеждение, сформированное психикой для сохранения иллюзии контроля.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 4. Разрешить себе злиться</h4>
+            <p>Подавленная злость превращается в напряжение, головные боли, депрессию или саморазрушительные привычки. Злость — это нормальная эмоция, которая говорит о нарушении границ. Находить безопасные способы её выражать (через письма, спорт, творчество) — важная часть исцеления.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 5. Научиться заботиться о себе</h4>
+            <p>Человек, чьи потребности в детстве игнорировались, часто не умеет заботиться о себе во взрослом возрасте. Начать стоит с малого: вовремя ложиться спать, нормально есть, отдыхать, когда устал, прислушиваться к сигналам тела. Это восстанавливает связь с собственными потребностями.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 6. Построить безопасные отношения</h4>
+            <p>Исцеление происходит через новый опыт. Здоровые отношения строятся на уважении, принятии чувств, умении говорить «нет» без страха быть отвергнутым. Начать можно с дружбы или работы с психологом. Важно искать людей, которые уважают ваши границы.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 7. Разорвать цикл повторения</h4>
+            <p>Люди с травмой часто бессознательно выбирают партнёров, которые воспроизводят знакомые с детства болезненные сценарии. Осознание этого алгоритма — первый шаг к тому, чтобы выбирать иначе. Обратите внимание: не повторяются ли в ваших отношениях старые болезненные паттерны?</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 8. Дать себе время</h4>
+            <p>Исцеление — это не быстрый процесс. Будут хорошие и плохие дни, взлёты и откаты назад. Это нормально. Важно не требовать от себя мгновенных результатов и быть к себе терпеливым. Заживление ран требует времени.</p>
+        </div>
+        
+        <div class="advice-card">
+            <h4>🧩 9. Помнить: травма — это не вы</h4>
+            <p>Травма — это то, что случилось, а не то, кто вы есть. Вы не сломаны и не испорчены. Вы — человек, который столкнулся с тяжёлым опытом, выжил и имеет право на безопасную, полноценную жизнь. Ваша ценность не зависит от того, что с вами произошло в детстве.</p>
+        </div>
+        
+        <div class="advice-list">
+            <h3>✨ Простые техники самопомощи (в моменте)</h3>
+            <ul>
+                <li>🧘 <strong>Заземление «5-4-3-2-1»</strong>: при тревоге назови 5 вещей, которые видишь, 4 — которые можешь потрогать, 3 звука, 2 запаха и 1 вкус. Это возвращает в «здесь и сейчас».</li>
+                <li>📓 <strong>Дневник эмоций</strong>: записывай чувства, не оценивая. Это помогает осознать триггеры и заметить повторяющиеся паттерны.</li>
+                <li>🌬️ <strong>Дыхание квадратом</strong>: вдох на 4 счёта, задержка на 4, выдох на 4, задержка на 4. Повторить 5–10 раз.</li>
+                <li>🤝 <strong>Разреши себе просить о помощи</strong>: обратиться к другу, психологу, учителю — это сила, а не слабость.</li>
+                <li>🎨 <strong>Творчество как выход</strong>: рисунок, музыка, движение — проживание эмоций через тело и искусство снижает внутреннее напряжение.</li>
+            </ul>
+            <h3>📞 Куда обратиться за помощью</h3>
+            <ul>
+                <li>Детский телефон доверия: <strong>8-800-2000-122</strong> (круглосуточно, анонимно, бесплатно).</li>
+                <li>Школьный психолог — первый помощник в кризисной ситуации.</li>
+                <li>Онлайн-платформы: «Помощь рядом», «Я не один».</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Секция QR-кода -->
+    <section id="qr" class="qr-section">
+        <h2>📱 QR-код проекта</h2>
+        <p>Отсканируйте этот код камерой телефона, чтобы открыть сайт на мобильном устройстве и поделиться им с друзьями или одноклассниками.</p>
+        <div class="qr-container">
+            <div id="qrcode"></div>
+            <button id="downloadQrBtn" class="qr-button">💾 Скачать QR-код (PNG)</button>
+            <p class="qr-note">*QR-код сгенерирован автоматически для текущего адреса страницы.</p>
+        </div>
+        <p style="margin-top: 10px; font-size: 0.9rem;">🔗 <strong>Ссылка на сайт:</strong> <span id="currentUrl"></span></p>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>Индивидуальный проект ученицы 10 класса | Тема: «Детские травмы как фактор формирования личности в подростковом возрасте»</p>
+        <p>Сайт разработан Половинкиной Е.А. под руководством Парфеновой С.А.</p>
+        <p>© 2026 | Исследование, анализ и интерактивный инструмент в рамках школьного проекта.</p>
+    </div>
+</footer>
+
+<script>
+    function getCurrentUrl() {
+        return window.location.href;
+    }
+
+    const urlSpan = document.getElementById('currentUrl');
+    if (urlSpan) {
+        urlSpan.textContent = getCurrentUrl();
+    }
+
+    if (typeof QRCode !== 'undefined') {
+        const qrcodeContainer = document.getElementById("qrcode");
+        qrcodeContainer.innerHTML = "";
+        new QRCode(qrcodeContainer, {
+            text: getCurrentUrl(),
+            width: 200,
+            height: 200,
+            colorDark: "#7d6b56",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.M
+        });
+    } else {
+        document.getElementById("qrcode").innerHTML = "⚠️ Для генерации QR-кода требуется интернет-соединение.";
+    }
+
+    function downloadQR() {
+        const qrcodeDiv = document.getElementById("qrcode");
+        const canvas = qrcodeDiv.querySelector("canvas");
+        if (canvas) {
+            const link = document.createElement("a");
+            link.download = "qrcode_project.png";
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+        } else {
+            alert("QR-код ещё не загружен.");
+        }
+    }
+
+    const downloadBtn = document.getElementById("downloadQrBtn");
+    if (downloadBtn) {
+        downloadBtn.addEventListener("click", downloadQR);
+    }
+
+    const calcBtn = document.getElementById('calcResultBtn');
+    const resultDiv = document.getElementById('testResult');
+
+    function calculateScore() {
+        const questions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
+        let total = 0;
+        let answeredCount = 0;
+
+        for (let q of questions) {
+            const selected = document.querySelector(`input[name="${q}"]:checked`);
+            if (selected) {
+                total += parseInt(selected.value);
+                answeredCount++;
+            }
+        }
+
+        if (answeredCount < questions.length) {
+            alert('Пожалуйста, ответьте на все 6 вопросов.');
+            return null;
+        }
+
+        let interpretation = '';
+        let colorStyle = '';
+        let recommendation = '';
+
+        if (total <= 4) {
+            interpretation = '🟢 Низкий уровень проявления рисков';
+            colorStyle = 'background: #e0f2e9; border-left-color: #2b7a4b;';
+            recommendation = 'Ваше эмоциональное состояние в целом устойчиво. Продолжайте заботиться о себе. Если чувствуете, что что-то беспокоит — не стесняйтесь обсуждать это с близкими.';
+        } else if (total <= 9) {
+            interpretation = '🟡 Средний уровень / зона внимания';
+            colorStyle = 'background: #fff1e0; border-left-color: #e68a2e;';
+            recommendation = 'Возможно, некоторые детские переживания всё ещё влияют на твою жизнь. Ты можешь испытывать тревогу, неуверенность или сложности в общении. Полезно вести дневник эмоций, развивать навыки саморегуляции и обратиться к психологу для профилактики.';
+        } else {
+            interpretation = '🔴 Высокий уровень эмоционального напряжения';
+            colorStyle = 'background: #ffe6e5; border-left-color: #c23b22;';
+            recommendation = 'Твой ответ указывает на возможные значительные последствия травматического опыта. Важно не оставаться наедине с этими переживаниями. Пожалуйста, обратись за поддержкой к психологу, в службу доверия 8-800-2000-122 или к взрослому, которому доверяешь. Помощь существует, и исцеление возможно.';
+        }
+
+        return { total, max: 18, interpretation, recommendation, colorStyle };
+    }
+
+    if (calcBtn) {
+        calcBtn.addEventListener('click', () => {
+            const res = calculateScore();
+            if (!res) return;
+
+            resultDiv.style.display = 'block';
+            resultDiv.style.cssText = `padding: 20px; border-radius: 28px; margin-top: 24px; border-left: 6px solid; ${res.colorStyle}`;
+            resultDiv.innerHTML = `
+                <h3 style="margin-bottom: 12px;">📊 ${res.interpretation}</h3>
+                <p><strong>Суммарный балл:</strong> ${res.total} из ${res.max}</p>
+                <p>💡 <strong>Рекомендация:</strong> ${res.recommendation}</p>
+                <p style="margin-top: 12px; font-size: 0.85rem;">*Этот тест создан на основе данных анкетирования и теоретического анализа проекта.</p>
+            `;
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    }
+</script>
+</body>
+</html>
