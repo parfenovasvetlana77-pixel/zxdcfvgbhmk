@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Детские травмы как фактор формирования личности в подростковом возрасте</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9eef5 100%);
+            color: #1e2a3e;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Контейнер */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Шапка */
+        header {
+            background: linear-gradient(135deg, #2c3e66, #1a2a44);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .author {
+            margin-top: 20px;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 40px;
+        }
+
+        /* Навигация */
+        nav {
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            padding: 14px 0;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            color: #2c3e66;
+            transition: 0.2s;
+            padding: 4px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #4f7aa6;
+            border-bottom-color: #4f7aa6;
+        }
+
+        /* Секции */
+        section {
+            background: white;
+            border-radius: 32px;
+            padding: 36px 32px;
+            margin: 48px 0;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        h2 {
+            font-size: 1.9rem;
+            color: #1e2f4b;
+            margin-bottom: 20px;
+            border-left: 5px solid #6c9ebf;
+            padding-left: 20px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            margin: 24px 0 12px 0;
+            color: #2c3e66;
+        }
+
+        .card-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 28px;
+            margin-top: 24px;
+            justify-content: center;
+        }
+
+        .card {
+            background: #f8fafc;
+            border-radius: 24px;
+            padding: 20px;
+            flex: 1 1 280px;
+            transition: 0.2s;
+            border: 1px solid #e2edf7;
+        }
+
+        .card h4 {
+            font-size: 1.4rem;
+            margin-bottom: 12px;
+            color: #1f3a5f;
+        }
+
+        .badge {
+            background: #e6f0fa;
+            color: #1f4a76;
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: 12px;
+        }
+
+        /* Тест */
+        .test-area {
+            background: #fef9e8;
+            border-radius: 28px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+        .question {
+            background: white;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+            border-radius: 28px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+            border: 1px solid #ffe6c7;
+        }
+
+        .question p {
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .options {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .options label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            background: #f2f5f9;
+            padding: 6px 14px;
+            border-radius: 40px;
+            transition: 0.1s;
+        }
+
+        button {
+            background: #2c3e66;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 10px;
+        }
+
+        button:hover {
+            background: #1f4a76;
+            transform: scale(1.02);
+        }
+
+        .result-box {
+            background: #e6f4ea;
+            padding: 20px;
+            border-radius: 28px;
+            margin-top: 24px;
+            border-left: 6px solid #2c6e4a;
+        }
+
+        /* Рекомендации */
+        .advice-list {
+            background: #eef2fa;
+            border-radius: 24px;
+            padding: 20px 28px;
+            margin: 20px 0;
+        }
+
+        .advice-list li {
+            margin-bottom: 12px;
+        }
+
+        footer {
+            background: #1a2a44;
+            color: #cbd5e6;
+            text-align: center;
+            padding: 32px 0;
+            border-radius: 30px 30px 0 0;
+            margin-top: 48px;
+        }
+
+        @media (max-width: 700px) {
+            header h1 { font-size: 1.6rem; }
+            section { padding: 24px 18px; }
+            h2 { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <h1>Детские травмы как фактор формирования личности в подростковом возрасте</h1>
+        <p>«Невидимые шрамы»: как пережитое в детстве определяет эмоции, поведение и отношения в юности</p>
+        <div class="author">Индивидуальный проект | 10 класс | Исследование + интерактивный инструмент</div>
+    </div>
+</header>
+
+<nav>
+    <div class="container">
+        <div class="nav-links">
+            <a href="#about">О проекте</a>
+            <a href="#impact">Как травма влияет</a>
+            <a href="#test">Самооценка</a>
+            <a href="#help">Рекомендации</a>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <!-- Секция 1: введение и цель -->
+    <section id="about">
+        <h2>📖 О проекте</h2>
+        <p><strong>Детство — фундаментальный этап в формировании личности, закладывающий основы мировосприятия, поведения и эмоционального здоровья человека.</strong> Однако, когда этот период омрачается травмирующими событиями — физическим, эмоциональным насилием, потерей близких или хронической нестабильностью, — последствия редко остаются в прошлом. Особенно остро они проявляются в подростковом возрасте, когда психика перестраивается, формируется идентичность и обостряется чувствительность к социальному окружению.</p>
+        <p>Цель проекта — комплексный анализ влияния детских психологических травм на формирование личности в подростковом возрасте: эмоциональную сферу, социальную адаптацию, самооценку и поведенческие паттерны.</p>
+        <p><strong>Задачи:</strong> определить понятие детской травмы, изучить механизмы воздействия на психику, проанализировать проявления в подростковом возрасте и рассмотреть подходы к психологической поддержке.</p>
+        <p>📌 <em>Практическая значимость:</em> создание интерактивного инструмента (тест-опросник) для первичного самоанализа и информационная поддержка подростков.</p>
+    </section>
+
+    <!-- Секция 2: Виды травм и их влияние на подростков -->
+    <section id="impact">
+        <h2>🧠 Как детские травмы отражаются в подростковом возрасте</h2>
+        <div class="card-grid">
+            <div class="card">
+                <div class="badge">Эмоциональная сфера</div>
+                <h4>⚡ Нестабильность & тревога</h4>
+                <p>Подростки с травматическим прошлым чаще испытывают внезапные перепады настроения, генерализованную тревожность, вспышки гнева или апатию. Эмоции могут быть "чрезмерными" в ответ на обычные stressors.</p>
+            </div>
+            <div class="card">
+                <div class="badge">Самооценка</div>
+                <h4>🪞 Чувство неполноценности</h4>
+                <p>Внутренний критик, сформированный в детстве, заставляет подростка обесценивать свои успехи, искать одобрения и бояться отвержения. Часто — перфекционизм или самообвинение.</p>
+            </div>
+            <div class="card">
+                <div class="badge">Отношения</div>
+                <h4>💔 Сложности доверия</h4>
+                <p>Трудно выстраивать близкие отношения, страх быть покинутым, либо наоборот — излишняя привязанность. Возможна склонность к токсичным связям или изоляция.</p>
+            </div>
+            <div class="card">
+                <div class="badge">Поведение</div>
+                <h4>⚠️ Риск & самоповреждение</h4>
+                <p>Импульсивность, уход в аддикции (игры, соцсети), рискованные поступки или селфхарм как попытка справиться с эмоциональной болью.</p>
+            </div>
+        </div>
+        <p style="margin-top: 20px; font-style: italic;">🔍 Исследования показывают: мозг подростка, пережившего травму, находится в состоянии повышенной стресс-реактивности. Миндалевидное тело (центр страха) активируется чаще, а префронтальная кора (контроль) созревает медленнее.</p>
+    </section>
+
+    <!-- Секция 3: интерактивный тест (самооценка рисков) -->
+    <section id="test">
+        <h2>🧩 Интерактивный тест: «Эмоциональный компас подростка»</h2>
+        <p>Этот анонимный опросник поможет тебе заметить возможные проявления последствий трудного детского опыта. <strong>Важно:</strong> тест не является диагнозом, но может стать поводом обратить внимание на своё состояние и при необходимости обратиться к психологу.</p>
+        <div class="test-area" id="testArea">
+            <form id="traumaTestForm">
+                <!-- Вопрос 1 -->
+                <div class="question">
+                    <p>1. В детстве я часто чувствовал(а), что мои эмоции не важны для родителей или опекунов.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q1" value="3"> Почти всегда</label>
+                        <label><input type="radio" name="q1" value="2"> Иногда</label>
+                        <label><input type="radio" name="q1" value="1"> Редко</label>
+                        <label><input type="radio" name="q1" value="0"> Никогда</label>
+                    </div>
+                </div>
+                <!-- Вопрос 2 -->
+                <div class="question">
+                    <p>2. Сейчас (в подростковом возрасте) мне сложно доверять сверстникам и открываться новым людям.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q2" value="3"> Согласен(а), очень сложно</label>
+                        <label><input type="radio" name="q2" value="2"> Иногда трудно</label>
+                        <label><input type="radio" name="q2" value="1"> Скорее легко</label>
+                        <label><input type="radio" name="q2" value="0"> Доверие не проблема</label>
+                    </div>
+                </div>
+                <!-- Вопрос 3 -->
+                <div class="question">
+                    <p>3. Я часто чувствую сильную тревогу или панику без явной причины.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q3" value="3"> Очень часто</label>
+                        <label><input type="radio" name="q3" value="2"> Время от времени</label>
+                        <label><input type="radio" name="q3" value="1"> Редко</label>
+                        <label><input type="radio" name="q3" value="0"> Почти никогда</label>
+                    </div>
+                </div>
+                <!-- Вопрос 4 -->
+                <div class="question">
+                    <p>4. Мне кажется, я заслуживаю только плохого отношения или неудач (низкая самооценка).</p>
+                    <div class="options">
+                        <label><input type="radio" name="q4" value="3"> Постоянно так думаю</label>
+                        <label><input type="radio" name="q4" value="2"> Иногда</label>
+                        <label><input type="radio" name="q4" value="1"> Редко</label>
+                        <label><input type="radio" name="q4" value="0"> Нет, я себя ценю</label>
+                    </div>
+                </div>
+                <!-- Вопрос 5 -->
+                <div class="question">
+                    <p>5. У меня бывают вспышки гнева или агрессии, которые я не могу контролировать.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q5" value="3"> Да, часто</label>
+                        <label><input type="radio" name="q5" value="2"> Иногда срываюсь</label>
+                        <label><input type="radio" name="q5" value="1"> Редко</label>
+                        <label><input type="radio" name="q5" value="0"> Нет, спокоен(а)</label>
+                    </div>
+                </div>
+                <!-- Вопрос 6 -->
+                <div class="question">
+                    <p>6. В детстве я пережил(а) стрессовые события (развод родителей, насилие, потерю близкого, игнорирование и т.д.), которые до сих пор всплывают в памяти.</p>
+                    <div class="options">
+                        <label><input type="radio" name="q6" value="3"> Да, и это сильно влияет</label>
+                        <label><input type="radio" name="q6" value="2"> Частично влияет</label>
+                        <label><input type="radio" name="q6" value="1"> Незначительно</label>
+                        <label><input type="radio" name="q6" value="0"> Нет, такого не было</label>
+                    </div>
+                </div>
+                <button type="button" id="calcResultBtn">🔍 Получить результат</button>
+            </form>
+            <div id="testResult" class="result-box" style="display: none;">
+                <!-- сюда будет выведен результат -->
+            </div>
+        </div>
+        <p style="margin-top: 16px; font-size: 0.85rem;">⚠️ Тест носит ознакомительный характер. Если результат показывает высокий уровень эмоционального напряжения, важно обратиться за поддержкой к школьному психологу или взрослому, которому доверяешь.</p>
+    </section>
+
+    <!-- Секция: практические рекомендации + методы помощи -->
+    <section id="help">
+        <h2>🛡️ Как поддержать себя и близких?</h2>
+        <div class="advice-list">
+            <h3>✨ Техники самопомощи (для подростков)</h3>
+            <ul>
+                <li>🧘 <strong>Заземление «5-4-3-2-1»</strong>: при тревоге назови 5 вещей, которые видишь, 4 — которые можешь потрогать, 3 звука, 2 запаха и 1 вкус. Возвращает в "здесь и сейчас".</li>
+                <li>📓 <strong>Дневник эмоций</strong>: записывай чувства, не оценивая. Это помогает осознать триггеры.</li>
+                <li>🤝 <strong>Разреши себе просить о помощи</strong>: обратиться к другу, психологу, учителю — это сила, а не слабость.</li>
+                <li>🎨 <strong>Творчество как выход</strong>: рисунок, музыка, движение — проживание эмоций через тело и искусство снижает внутреннее напряжение.</li>
+            </ul>
+            <h3>🏫 Роль школы и взрослых</h3>
+            <p>Создание безопасной среды, где чувства не обесцениваются, а травма не становится клеймом. Школьные психологи могут проводить группы поддержки, а классные руководители — быть внимательными к резким изменениям в поведении.</p>
+            <h3>📞 Куда обратиться (Россия)</h3>
+            <ul>
+                <li>Детский телефон доверия: <strong>8-800-2000-122</strong> (круглосуточно, анонимно).</li>
+                <li>Школьный психолог — первый помощник в кризисной ситуации.</li>
+                <li>Онлайн-платформы: «Помощь рядом», «Я не один» и др.</li>
+            </ul>
+            <p style="margin-top: 20px;"><strong>Важно:</strong> травматический опыт не является приговором. Своевременная поддержка и психотерапия помогают выстроить здоровые сценарии и исцелить «внутреннего ребёнка».</p>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <p>Индивидуальный проект ученицы 10 класса | Тема: «Детские травмы как фактор формирования личности в подростковом возрасте»</p>
+        <p>© 2025 | Исследование, анализ и интерактивный инструмент в рамках школьного проекта. Все материалы носят информационно-просветительский характер.</p>
+    </div>
+</footer>
+
+<script>
+    (function() {
+        const calcBtn = document.getElementById('calcResultBtn');
+        const resultDiv = document.getElementById('testResult');
+
+        function calculateScore() {
+            const questions = ['q1', 'q2', 'q3', 'q4', 'q5', 'q6'];
+            let total = 0;
+            let answeredCount = 0;
+
+            for (let q of questions) {
+                const selected = document.querySelector(`input[name="${q}"]:checked`);
+                if (selected) {
+                    total += parseInt(selected.value);
+                    answeredCount++;
+                }
+            }
+
+            if (answeredCount < questions.length) {
+                alert('Пожалуйста, ответьте на все 6 вопросов, чтобы получить более точный результат.');
+                return null;
+            }
+
+            // Интерпретация: максимальный балл = 6*3 = 18
+            let interpretation = '';
+            let colorStyle = '';
+            let recommendation = '';
+
+            if (total <= 4) {
+                interpretation = '🟢 Низкий уровень проявления рисков';
+                colorStyle = 'background: #e0f2e9; border-left-color: #2b7a4b;';
+                recommendation = 'Ваше эмоциональное состояние в целом устойчиво. Продолжайте заботиться о себе, развивайте доверительные отношения. Если чувствуете, что что-то беспокоит — не стесняйтесь обсуждать это с близкими.';
+            } else if (total <= 9) {
+                interpretation = '🟡 Средний уровень / зона внимания';
+                colorStyle = 'background: #fff1e0; border-left-color: #e68a2e;';
+                recommendation = 'Возможно, некоторые детские переживания всё ещё влияют на твою жизнь. Ты можешь испытывать тревогу, неуверенность или сложности в общении. Полезно вести дневник, развивать навыки саморегуляции и обратиться к психологу для профилактики.';
+            } else {
+                interpretation = '🔴 Высокий уровень эмоционального напряжения';
+                colorStyle = 'background: #ffe6e5; border-left-color: #c23b22;';
+                recommendation = 'Твой ответ указывает на возможные значительные последствия травматического опыта. Важно не оставаться наедине с этими переживаниями. Пожалуйста, обратись за поддержкой к психологу, в службу доверия 8-800-2000-122 или к взрослому, которому доверяешь. Помощь существует, и исцеление возможно.';
+            }
+
+            return { total, max: 18, interpretation, recommendation, colorStyle };
+        }
+
+        calcBtn.addEventListener('click', () => {
+            const res = calculateScore();
+            if (!res) return;
+
+            resultDiv.style.display = 'block';
+            resultDiv.style.cssText = `padding: 20px; border-radius: 28px; margin-top: 24px; border-left: 6px solid; ${res.colorStyle}`;
+            resultDiv.innerHTML = `
+                <h3 style="margin-bottom: 12px;">📊 Ваш результат: ${res.interpretation}</h3>
+                <p><strong>Суммарный балл:</strong> ${res.total} из ${res.max}</p>
+                <p>💡 <strong>Рекомендация:</strong> ${res.recommendation}</p>
+                <p style="margin-top: 14px; font-size: 0.9rem;">Этот инструмент — часть школьного проекта и не заменяет профессиональную диагностику. Если чувствуешь, что нужна помощь, обязательно обратись к специалисту.</p>
+            `;
+            // плавный скролл к результату
+            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        });
+    })();
+</script>
+</body>
+</html>
